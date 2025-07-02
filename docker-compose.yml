@@ -1,0 +1,12 @@
+services:
+  # Serviço da sua aplicação Python (baseado no seu Dockerfile)
+  app:
+    build: . # Constrói a imagem a partir do Dockerfile localizado na mesma pasta
+    container_name: api # Nome do container para fácil identificação
+    ports:
+      - "8000:8000" # Mapeia a porta 8000 do seu computador para a porta 8000 do contêiner
+    volumes:
+      # Monta o diretório atual no diretório /app do contêiner.
+      # Essencial para que o hot-reload (--reload no seu Dockerfile) funcione.
+      - .:/app
+
